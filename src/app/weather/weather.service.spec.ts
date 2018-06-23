@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing'
-import { inject, TestBed } from '@angular/core/testing'
+import { async, inject, TestBed } from '@angular/core/testing'
 import { WeatherService } from './weather.service'
 
 describe('WeatherService', () => {
@@ -10,7 +10,9 @@ describe('WeatherService', () => {
     })
   })
 
-  it('should be created', inject([WeatherService], (service: WeatherService) => {
-    expect(service).toBeTruthy()
-  }))
+  it('should be created', async(
+    inject([WeatherService], (service: WeatherService) => {
+      expect(service).toBeTruthy()
+    })
+  ))
 })
